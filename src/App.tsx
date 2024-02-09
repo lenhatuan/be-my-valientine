@@ -1,34 +1,63 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
+const phrases = [
+  "hok",
+  "hok baoh",
+  "từ chối ",
+  "năn nỉ á :< ",
+  "thiệt áaaaaaaa",
+  "mỹ nữ cảm thấy tổn thưn :(",
+  "ok ko hỏi nữa",
+  "có cái lìn mà hok hỏi ấyyyyy=)))))",
+  "uk tôi mệt anh quá cơ, khổ lắm cơ >:(",
+];
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [hokCount, setHokCount] = useState(0);
+  const [ociPressed, setOciPressed] = useState(false);
+  const ociButtonSize = hokCount * 20 + 16;
+
+  function handleHokClick() {
+    setHokCount(hokCount + 1);
+  }
+  function getHokButtonText() {
+    return phrases[Math.min(hokCount, phrases.length - 1)];
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="valentine-container">
+      {ociPressed ? (
+        <>
+          <img
+            alt="bears kissing"
+            src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
+          />
+          <div className="text">Yeyeeeeeeee</div>
+        </>
+      ) : (
+        <>
+          <img
+            alt="bears with hearts"
+            src="https://media1.tenor.com/m/bWs4Kitqmu0AAAAC/heartbeat-heart.gif"
+          />
+
+          <div>will diu be mai valungtung</div>
+          <div>
+            <button
+              className="ociButton"
+              style={{ fontSize: ociButtonSize }}
+              onClick={() => setOciPressed(true)}
+            >
+              Oci
+            </button>
+            <button onClick={handleHokClick} className="hokButton">
+              {getHokButtonText()}
+            </button>
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 
