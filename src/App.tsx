@@ -1,25 +1,40 @@
 import { useState } from "react";
 import "./App.css";
+import Favicon from "react-favicon";
+
 
 const phrases = [
-  "hok",
-  "hok baoh",
-  "từ chối ",
-  "năn nỉ á :< ",
-  "thiệt áaaaaaaa",
-  "mỹ nữ cảm thấy tổn thưn :(",
-  "ok ko hỏi nữa",
-  "có cái lìn mà hok hỏi ấyyyyy=)))))",
-  "uk tôi mệt anh quá cơ, khổ lắm cơ >:(",
+  "No",
+  "Are you sure?",
+  "Pookie please",
+  "Don't do this to me :(",
+  "You're breaking my heart",
+  "I'm gonna cry...",
+  "Oàaaaaaaaaaaaaaaa",
+];
+
+const images = [
+  "src/assets/cat-0.jpg",
+  "src/assets/cat-1.jpg",
+  "src/assets/cat-2.jpg",
+  "src/assets/cat-3.jpg",
+  "src/assets/cat-4.jpg",
+  "src/assets/cat-5.jpg",
 ];
 
 function App() {
   const [hokCount, setHokCount] = useState(0);
   const [ociPressed, setOciPressed] = useState(false);
-  const ociButtonSize = hokCount * 20 + 16;
+  const ociButtonSize = hokCount * 15 + 15;
+  const [source,setSource] = useState("src/assets/cat-0.jpg");
+
 
   function handleHokClick() {
+    if(hokCount < 5) {
+      setSource(images[hokCount+1]);
+    }
     setHokCount(hokCount + 1);
+    
   }
   function getHokButtonText() {
     return phrases[Math.min(hokCount, phrases.length - 1)];
@@ -27,31 +42,36 @@ function App() {
 
   return (
     <div className="valentine-container">
+      <Favicon url="src/assets/favicon.png" />
       {ociPressed ? (
         <>
           <img
             alt="bears kissing"
-            src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
+            src="src/assets/cat-yes.jpg"
+            width="400px"
+            height="400px"
           />
-          <div className="text">Yeyeeeeeeee</div>
+          <div style={{fontSize:45, color: 'pink'}}>{`Yayyyyyyyyy!!! <3`}</div>
         </>
       ) : (
         <>
           <img
             alt="bears with hearts"
-            src="https://media1.tenor.com/m/bWs4Kitqmu0AAAAC/heartbeat-heart.gif"
+            src={source}
+            width="300px"
+            height="300px"
           />
 
-          <div>will diu be mai valungtung</div>
+          <div style={{color: "pink", fontSize: 40, paddingTop: 5, paddingBottom: 5 }}>Will you be my Valentine</div>
           <div>
             <button
               className="ociButton"
               style={{ fontSize: ociButtonSize }}
               onClick={() => setOciPressed(true)}
             >
-              Oci
+              Yes
             </button>
-            <button onClick={handleHokClick} className="hokButton">
+            <button onClick={handleHokClick} className="noButton" style={{ fontSize: 15 }}>
               {getHokButtonText()}
             </button>
           </div>

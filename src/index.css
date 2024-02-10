@@ -1,0 +1,34 @@
+body, html { 
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 20px;
+  }
+
+  .ociButton {
+    background-color: #40c057;
+    border: 1px solid #40c057;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+
+  .noButton {
+    background-color: #f03e3e;
+    border: 1px solid #f03e3e;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
