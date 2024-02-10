@@ -14,19 +14,19 @@ const phrases = [
 ];
 
 const images = [
-  "/assets/cat-0.jpg",
-  "/assets/cat-1.jpg",
-  "/assets/cat-2.jpg",
-  "/assets/cat-3.jpg",
-  "/assets/cat-4.jpg",
-  "/assets/cat-5.jpg",
+  "/static/cat-0.jpg",
+  "/static/cat-1.jpg",
+  "/static/cat-2.jpg",
+  "/static/cat-3.jpg",
+  "/static/cat-4.jpg",
+  "/static/cat-5.jpg",
 ];
 
 function App() {
   const [hokCount, setHokCount] = useState(0);
   const [ociPressed, setOciPressed] = useState(false);
   const ociButtonSize = hokCount * 15 + 15;
-  const [source,setSource] = useState("src/assets/cat-0.jpg");
+  const [source,setSource] = useState("/static/cat-0.jpg");
 
 
   function handleHokClick() {
@@ -42,12 +42,12 @@ function App() {
 
   return (
     <div className="valentine-container">
-      <Favicon url="src/assets/favicon.png" />
+      <Favicon url="/static/favicon.png" />
       {ociPressed ? (
         <>
           <img
             alt="bears kissing"
-            src="src/assets/cat-yes.jpg"
+            src="/static/cat-yes.jpg"
             width="400px"
             height="400px"
           />
