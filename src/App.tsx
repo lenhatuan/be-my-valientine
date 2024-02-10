@@ -14,12 +14,12 @@ const phrases = [
 ];
 
 const images = [
-  "src/assets/cat-0.jpg",
-  "src/assets/cat-1.jpg",
-  "src/assets/cat-2.jpg",
-  "src/assets/cat-3.jpg",
-  "src/assets/cat-4.jpg",
-  "src/assets/cat-5.jpg",
+  "/assets/cat-0.jpg",
+  "/assets/cat-1.jpg",
+  "/assets/cat-2.jpg",
+  "/assets/cat-3.jpg",
+  "/assets/cat-4.jpg",
+  "/assets/cat-5.jpg",
 ];
 
 function App() {
